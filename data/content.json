@@ -1,7 +1,7 @@
 {
   "nom_entreprise": "Artisan David S",
   "type_artisan": "Paysagiste",
-  "ville": "Vannes",
+  "ville": "Plouhinec",
   "telephone_affiche": "07 86 82 12 93",
   "telephone_tel": "+33786821293",
   "annee": "2026",
@@ -12,7 +12,7 @@
   },
   "apropos": {
     "image": "images/apropos.webp",
-    "texte": "Artisan David S est votre paysagiste de référence à Vannes et dans tout le Morbihan. Depuis 15 ans, nous concevons, aménageons et entretenons des espaces verts qui reflètent la personnalité de chacun. Passionnés par le végétal et le travail soigné, nous accompagnons particuliers et professionnels de la première esquisse à la dernière plantation, avec une exigence constante de qualité et de respect des délais.\n\nCréation de jardins sur mesure, aménagement paysager complet, terrasses et allées, entretien régulier, élagage, taille de haies : nous maîtrisons l'ensemble des prestations, à Vannes comme à Auray, Lorient, Pontivy, Ploërmel, Sarzeau, Hennebont ou Quiberon. Avec plus de 300 projets réalisés en Bretagne, Artisan David S s'appuie sur un savoir-faire reconnu et des matériaux de qualité pour créer des extérieurs durables et harmonieux, adaptés au climat océanique du Morbihan. Votre satisfaction et la beauté de votre jardin sont notre priorité.",
+    "texte": "Artisan David S est votre paysagiste de référence à Plouhinec et dans tout le Morbihan. Depuis 15 ans, nous concevons, aménageons et entretenons des espaces verts qui reflètent la personnalité de chacun. Passionnés par le végétal et le travail soigné, nous accompagnons particuliers et professionnels de la première esquisse à la dernière plantation, avec une exigence constante de qualité et de respect des délais.\n\nCréation de jardins sur mesure, aménagement paysager complet, terrasses et allées, entretien régulier, élagage, taille de haies : nous maîtrisons l'ensemble des prestations, à Plouhinec comme à Lorient, Vannes, Auray, Pontivy, Ploërmel, Sarzeau, Hennebont ou Quiberon. Avec plus de 300 projets réalisés en Bretagne, Artisan David S s'appuie sur un savoir-faire reconnu et des matériaux de qualité pour créer des extérieurs durables et harmonieux, adaptés au climat océanique du Morbihan. Votre satisfaction et la beauté de votre jardin sont notre priorité.",
     "badges": [
       "Artisan paysagiste dans le Morbihan",
       "Devis gratuit sous 24h",
@@ -136,8 +136,8 @@
       "reponse": "Artisan David S réalise la création et la conception de jardins sur mesure, l'aménagement paysager complet (terrasses, allées, plantations), l'entretien régulier d'espaces verts, l'élagage et l'abattage d'arbres, la taille de haies ainsi que le nettoyage de terrasses et dallages."
     },
     {
-      "question": "Quelles communes desservez-vous autour de Vannes ?",
-      "reponse": "Nous intervenons à Vannes et dans tout le Morbihan : Auray, Lorient, Lanester, Pontivy, Ploërmel, Sarzeau, Hennebont, Quiberon, Carnac, Guidel, Josselin, Questembert, La Gacilly et les communes environnantes. Appelez-nous au 07 86 82 12 93 pour vérifier votre secteur."
+      "question": "Quelles communes desservez-vous autour de Plouhinec ?",
+      "reponse": "Nous intervenons à Plouhinec et dans tout le Morbihan : Lorient, Vannes, Auray, Lanester, Pontivy, Ploërmel, Sarzeau, Hennebont, Quiberon, Carnac, Guidel, Josselin, Questembert, La Gacilly et les communes environnantes. Appelez-nous au 07 86 82 12 93 pour vérifier votre secteur."
     },
     {
       "question": "Proposez-vous des contrats d'entretien de jardin à l'année ?",
@@ -153,7 +153,7 @@
     }
   ],
   "contact_description": "Décrivez votre projet de jardin à Vannes ou dans le Morbihan et recevez un devis personnalisé sous 24h — gratuit et sans engagement.",
-  "footer_description": "Paysagiste à Vannes, Artisan David S crée, aménage et entretient vos jardins et espaces verts dans tout le Morbihan : Auray, Lorient, Pontivy, Ploërmel et alentours.",
+  "footer_description": "Paysagiste à Plouhinec, Artisan David S crée, aménage et entretient vos jardins et espaces verts dans tout le Morbihan : Auray, Lorient, Pontivy, Ploërmel et alentours.",
   "design": {
     "nav_style": "transparent",
     "stats_style": "classique",
@@ -161,9 +161,9 @@
   },
   "horaires": {
     "visible": false,
-    "adresse": "Vannes (56000), Morbihan",
-    "lat": 47.6582,
-    "lng": -2.7608,
+    "adresse": "10 Ldt Kerjean, 56680 Plouhinec, Morbihan",
+    "lat": 47.6983,
+    "lng": -3.2503,
     "jours": [
       {
         "nom": "Lundi",
@@ -222,5 +222,6 @@
         "am_fin": "19:00"
       }
     ]
-  }
+  },
+  "adresse": "10 Ldt Kerjean, 56680 Plouhinec"
 }

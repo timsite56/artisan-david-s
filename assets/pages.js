@@ -54,8 +54,8 @@
       if (d.footer_description) {
         document.querySelectorAll('.footer-desc').forEach(function (s) { s.textContent = d.footer_description; });
       }
-      if (d.ville) {
-        document.querySelectorAll('.brand-ville').forEach(function (s) { s.textContent = d.ville; });
+      if (d.adresse || d.ville) {
+        document.querySelectorAll('.brand-ville').forEach(function (s) { s.textContent = d.adresse || d.ville; });
       }
       if (d.annee) {
         document.querySelectorAll('.brand-annee').forEach(function (s) { s.textContent = d.annee; });
