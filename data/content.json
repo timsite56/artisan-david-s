@@ -2,8 +2,8 @@
   "nom_entreprise": "Artisan David S",
   "type_artisan": "Paysagiste",
   "ville": "Plouhinec",
-  "telephone_affiche": "06 04 41 73 82",
-  "telephone_tel": "+33604417382",
+  "telephone_affiche": "07 86 82 12 93",
+  "telephone_tel": "+33786821293",
   "annee": "2026",
   "hero": {
     "image": "images/hero-bg.jpg",
@@ -229,9 +229,5 @@
       }
     ]
   },
-  "adresse": "10 Ldt Kerjean, 56680 Plouhinec",
-  "telephone2_affiche": "07 86 82 12 93",
-  "telephone2_tel": "+33786821293",
-  "contact1_prenom": "Noé",
-  "contact2_prenom": "David"
+  "adresse": "10 Ldt Kerjean, 56680 Plouhinec"
 }

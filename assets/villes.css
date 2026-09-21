@@ -43,7 +43,7 @@
   .mega-foot{text-align:left;border-top:1px solid var(--line)}
 }
 
-/* ── Deux numéros : Noé et David ── */
+/* ── Numéro de téléphone ── */
 .hero-btns .btn-tel2{background:rgba(255,255,255,0.14);color:#fff;border:1px solid rgba(255,255,255,0.45)}
 .hero-btns .btn-tel2:hover{background:rgba(255,255,255,0.24)}
 .tel-note{margin-top:.9rem;font-size:.86rem;color:rgba(255,255,255,0.85)}
@@ -57,7 +57,7 @@
 /* ── Barre d'appel mobile ── */
 .callbar{display:none}
 @media(max-width:760px){
-  .callbar{display:grid;grid-template-columns:1fr 1fr .9fr;gap:.4rem;position:fixed;left:0;right:0;bottom:0;z-index:150;
+  .callbar{display:grid;grid-template-columns:1.6fr 1fr;gap:.4rem;position:fixed;left:0;right:0;bottom:0;z-index:150;
     padding:.5rem .5rem calc(.5rem + env(safe-area-inset-bottom));background:rgba(250,248,242,0.97);
     border-top:1px solid var(--line);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 -6px 20px rgba(35,48,42,0.08)}
   .callbar a{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px;border-radius:12px;
@@ -110,7 +110,7 @@
   .page-hero{min-height:0;padding:6.2rem 0 1.8rem}
   .page-hero h1{font-size:1.85rem;margin:.5rem 0 .6rem}
   .page-hero p{font-size:.93rem;line-height:1.6}
-  .page-hero .hero-btns,.cta .btns{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;margin-top:1.2rem}
+  .page-hero .hero-btns,.cta .btns{display:grid;grid-template-columns:1fr;gap:.5rem;margin-top:1.2rem}
   .page-hero .hero-btns .btn,.cta .btns .btn{justify-content:center;padding:.8rem .4rem;font-size:.9rem;white-space:nowrap}
   .page-hero .hero-btns>a:not(.phone-link):not(.phone2-link),.cta .btns>a:not(.phone-link):not(.phone2-link){display:none}
   .page-hero .tel-note,.cta .tel-note{font-size:.76rem;margin-top:.6rem;line-height:1.45}
@@ -181,7 +181,7 @@
   /* Accueil : les deux numéros sur une ligne */
   #hero .hero-btns{display:grid;grid-template-columns:1fr 1fr;gap:.5rem;width:100%;max-width:400px;margin-left:auto;margin-right:auto}
   #hero .hero-btns .btn{justify-content:center;padding:.8rem .4rem;font-size:.9rem;white-space:nowrap}
-  #hero .hero-btns>a:not(.phone-link):not(.phone2-link){grid-column:1/-1}
+  #hero .hero-btns>a:not(.phone-link):not(.phone2-link){grid-column:auto}
 }
 @media(max-width:760px){
   /* Textes repliés (voir villes.js) */
@@ -209,7 +209,7 @@
 @media(max-width:760px){
   .lp-first{padding-top:2rem}
   .lp-call{padding:1rem .9rem}
-  .lp-call-btns{display:grid;grid-template-columns:1fr 1fr;gap:.5rem}
+  .lp-call-btns{display:grid;grid-template-columns:1fr;gap:.5rem}
   .lp-call-btns .btn{justify-content:center;padding:.75rem .3rem;font-size:.88rem;white-space:nowrap}
   .lp-autres .sec-head .h2{font-size:1.35rem}
 }

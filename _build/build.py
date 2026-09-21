@@ -11,10 +11,11 @@ from contenu_villes import VILLES, ORDRE_VILLES, SERVICES, ORDRE_SERVICES, COMBO
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 os.chdir(ROOT)
-BASE = "https://artisan-david-s.pages.dev/"
+BASE = "https://artisan-david-s.fr/"
 NOM = "Artisan David S"
-T1 = dict(nom="Noé", tel="+33604417382", aff="06 04 41 73 82")
-T2 = dict(nom="David", tel="+33786821293", aff="07 86 82 12 93")
+# Un seul numéro affiché sur le site (demande du 21/09/2026)
+T1 = dict(nom="David", tel="+33786821293", aff="07 86 82 12 93")
+ANCIEN_TEL = dict(tel="+33604417382", aff="06 04 41 73 82")
 E = html.escape
 
 def lire(f): return open(f, encoding="utf-8").read()
@@ -74,10 +75,9 @@ def nav(courante, accueil=False):
 </nav>'''
 
 def boutons_tel():
-    return (f'<a href="tel:{T1["tel"]}" class="btn btn-primary phone-link">{PHONE_SVG}<span class="phone-text">{T1["aff"]}</span></a>'
-            f'<a href="tel:{T2["tel"]}" class="btn btn-ghostw phone2-link">{PHONE_SVG}<span class="phone2-text">{T2["aff"]}</span></a>')
+    return f'<a href="tel:{T1["tel"]}" class="btn btn-primary phone-link">{PHONE_SVG}<span class="phone-text">{T1["aff"]}</span></a>'
 
-NOTE_TEL = '<p class="tel-note">Pas de réponse au premier numéro ? Appelez le second, l\'un de nous décroche toujours.</p>'
+NOTE_TEL = ''
 
 def maillage():
     cols = []
@@ -108,8 +108,6 @@ def footer():
     <div class="footer-col"><h4>Contact</h4>
       <span>{PIN}<span class="brand-ville">10 Ldt Kerjean, 56680 Plouhinec</span></span>
       <a href="tel:{T1["tel"]}" class="phone-link">{PHONE_SVG}<span class="phone-text">{T1["aff"]}</span></a>
-      <a href="tel:{T2["tel"]}" class="phone2-link">{PHONE_SVG}<span class="phone2-text">{T2["aff"]}</span></a>
-      <span style="font-size:.78rem;opacity:.75">Si l'un ne répond pas, appelez l'autre.</span>
       <a href="index.html#devis">{DEVIS_SVG}Demander un devis gratuit</a>
     </div>
   </div>
@@ -117,7 +115,7 @@ def footer():
   <div class="footer-bottom">© <span class="brand-annee">2026</span> <span class="brand-name">{NOM}</span> · Paysagiste à Plouhinec, Lorient, Vannes, Auray, Hennebont, Lanester, Carnac et dans tout le Morbihan · Tous droits réservés</div>
 </footer>'''
 
-ASSETS = '  <link rel="stylesheet" href="assets/villes.css?v=5" />\n  <script defer src="assets/villes.js?v=5"></script>\n'
+ASSETS = '  <link rel="stylesheet" href="assets/villes.css?v=6" />\n  <script defer src="assets/villes.js?v=6"></script>\n'
 
 TPL = lire("elagage-abattage.html")
 HEAD_FONTS = re.search(r'  <link rel="icon".*?<script defer src="assets/pages\.js\?v=\d+"></script>\n', TPL, re.S).group(0)
@@ -358,7 +356,7 @@ for v in ORDRE_VILLES:
 </section>
 '''
     titre = f"Paysagiste {V['dans']} ({V['cp']}) — élagage, haies, entretien de jardin"
-    desc = f"Paysagiste {V['dans']} ({V['cp']}) : élagage et abattage, taille de haies, entretien de jardin, débroussaillage, aménagement paysager. Devis gratuit au 06 04 41 73 82 ou au 07 86 82 12 93."
+    desc = f"Paysagiste {V['dans']} ({V['cp']}) : élagage et abattage, taille de haies, entretien de jardin, débroussaillage, aménagement paysager. Devis gratuit au 07 86 82 12 93."
     lb = {"@context": "https://schema.org", "@type": "Service", "serviceType": "Paysagiste", "name": f"Paysagiste {V['dans']}",
           "description": desc, "url": BASE + f, "provider": PROVIDER, "areaServed": {"@type": "City", "name": V["nom"]}}
     faqld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faq_json(faqs)}
@@ -413,7 +411,7 @@ corps = f'''
   </div>
 </section>
 '''
-desc = "Débroussaillage et remise en état de terrain dans le Morbihan : friche, ronces, jardin abandonné, succession, avant vente. Évacuation des déchets verts. Devis gratuit au 06 04 41 73 82."
+desc = "Débroussaillage et remise en état de terrain dans le Morbihan : friche, ronces, jardin abandonné, succession, avant vente. Évacuation des déchets verts. Devis gratuit au 07 86 82 12 93."
 svc = {"@context": "https://schema.org", "@type": "Service", "serviceType": "Débroussaillage", "name": "Débroussaillage et remise en état de terrain",
        "description": desc, "url": BASE + f, "provider": PROVIDER, "areaServed": {"@type": "AdministrativeArea", "name": "Morbihan"}}
 ecrire(f, page(f, "Débroussaillage et remise en état de terrain dans le Morbihan (56)", desc, SERVICES["debroussaillage"]["img"],
@@ -433,10 +431,9 @@ for f in ANCIENNES:
     t = re.sub(r'<footer>.*?</footer>', lambda m: footer(), t, count=1, flags=re.S)
     t = BTN_TEL.sub(lambda m: boutons_tel(), t)
     t = re.sub(r'\n\s*<p class="tel-note">.*?</p>', '', t)
-    t = re.sub(r'(<div class="(?:hero-btns|btns)">.*?</div>)', lambda m: m.group(1) + "\n    " + NOTE_TEL, t, flags=re.S)
     t = t.replace("Garantie décennale", "Artisan local")
-    t = t.replace('"telephone": "+33786821293"', f'"telephone": "{T1["tel"]}"')
-    t = t.replace("Devis gratuit au 07 86 82 12 93", "Devis gratuit au 06 04 41 73 82")
+    t = t.replace(ANCIEN_TEL["tel"], T1["tel"]).replace(ANCIEN_TEL["aff"], T1["aff"])
+    t = t.replace("https://artisan-david-s.pages.dev/", BASE)
     if "assets/villes.css" not in t:
         t = re.sub(r'(  <script defer src="assets/pages\.js\?v=\d+"></script>\n)', lambda m: m.group(1) + ASSETS, t, count=1)
     ecrire(f, t)
@@ -458,16 +455,14 @@ t = re.sub(r'<nav id="nav">.*?</nav>', lambda m: nav("index.html", accueil=True)
 hero_old = re.search(r'(<section id="hero">.*?<div class="hero-btns">)(.*?)(</div>)', t, re.S)
 t = t[:hero_old.start(2)] + "\n      " + boutons_tel() + '\n      <a href="#services" class="btn btn-ghostw">Nos services</a>\n    ' + t[hero_old.end(2):]
 t = re.sub(r'\n\s*<p class="tel-note">.*?</p>', '', t, count=1)
-if True:
-    t = re.sub(r'(<section id="hero">.*?<div class="hero-btns">.*?</div>)', lambda m: m.group(1) + "\n    " + NOTE_TEL, t, count=1, flags=re.S)
 # pied de page : deuxième numéro + maillage villes
 t = re.sub(r'(<a href="(?:#|tel:[^"]*)" class="phone-link">.*?<span id="footerTel"> ?</span></a>)(\s*<a href="tel:[^"]*" class="phone2-link">.*?</a>\s*<span class="tel-foot"[^>]*>.*?</span>)*',
-           lambda m: m.group(1).replace('href="#"', f'href="tel:{T1["tel"]}"') +
-           f'\n      <a href="tel:{T2["tel"]}" class="phone2-link">{PHONE_SVG}<span class="phone2-text">{T2["aff"]}</span></a>\n      <span class="tel-foot" style="font-size:.78rem;opacity:.75">Si l\'un ne répond pas, appelez l\'autre.</span>',
+           lambda m: m.group(1).replace('href="#"', f'href="tel:{T1["tel"]}"'),
            t, count=1, flags=re.S)
 t = re.sub(r'\s*<div class="footer-maillage">.*?</div>(?=\s*<div class="footer-bottom">)', '', t, flags=re.S)
 t = t.replace('<div class="footer-bottom">', maillage() + '\n  <div class="footer-bottom">', 1)
-t = t.replace('"telephone": "+33786821293"', f'"telephone": "{T1["tel"]}"')
+t = t.replace(ANCIEN_TEL["tel"], T1["tel"]).replace(ANCIEN_TEL["aff"], T1["aff"])
+t = t.replace("https://artisan-david-s.pages.dev/", BASE)
 t = re.sub(r'href="#" class="(btn btn-primary )?phone-link"', lambda m: f'href="tel:{T1["tel"]}" class="{m.group(1) or ""}phone-link"', t)
 if "assets/villes.css" not in t:
     t = t.replace("</head>", ASSETS + "</head>", 1)

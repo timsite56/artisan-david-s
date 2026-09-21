@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /admin/
 
-Sitemap: https://artisan-david-s.pages.dev/sitemap.xml
+Sitemap: https://artisan-david-s.fr/sitemap.xml
