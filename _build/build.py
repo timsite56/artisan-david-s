@@ -451,7 +451,8 @@ t = lire("index.html")
 t = re.sub(r'<nav id="nav">.*?</nav>', lambda m: nav("index.html", accueil=True), t, count=1, flags=re.S)
 hero_old = re.search(r'(<section id="hero">.*?<div class="hero-btns">)(.*?)(</div>)', t, re.S)
 t = t[:hero_old.start(2)] + "\n      " + boutons_tel() + '\n      <a href="#services" class="btn btn-ghostw">Nos services</a>\n    ' + t[hero_old.end(2):]
-if 'class="tel-note"' not in t.split('<section id="stats">')[0]:
+t = re.sub(r'\n\s*<p class="tel-note">.*?</p>', '', t, count=1)
+if True:
     t = re.sub(r'(<section id="hero">.*?<div class="hero-btns">.*?</div>)', lambda m: m.group(1) + "\n    " + NOTE_TEL, t, count=1, flags=re.S)
 # pied de page : deuxième numéro + maillage villes
 t = re.sub(r'(<a href="(?:#|tel:[^"]*)" class="phone-link">.*?<span id="footerTel"> ?</span></a>)(\s*<a href="tel:[^"]*" class="phone2-link">.*?</a>\s*<span class="tel-foot"[^>]*>.*?</span>)*',
