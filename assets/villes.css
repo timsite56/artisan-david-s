@@ -1,0 +1,102 @@
+/* ──────────────────────────────────────────────────────────────
+   Artisan David S — méga-menu « Villes », double numéro et barre
+   d'appel mobile. Chargé par TOUTES les pages (accueil compris) :
+   il ne dépend que des variables de couleur communes.
+   ────────────────────────────────────────────────────────────── */
+
+/* ── Méga-menu Villes (bureau) ── */
+.nav-links>li.has-mega{position:static}
+.has-mega>a::after{content:"";width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg) translateY(-2px);opacity:.7;display:inline-block;margin-left:.35rem}
+.mega{position:absolute;top:100%;left:4%;right:4%;display:grid;grid-template-columns:repeat(3,1fr);gap:1rem 1.6rem;
+  background:#fffdf8;border:1px solid var(--line);border-radius:16px;box-shadow:0 22px 48px rgba(35,48,42,0.16);padding:1.3rem 1.5rem;
+  opacity:0;visibility:hidden;transform:translateY(8px);transition:opacity .18s,transform .18s,visibility .18s;z-index:130}
+.has-mega:hover .mega,.has-mega:focus-within .mega{opacity:1;visibility:visible;transform:none}
+/* pont de survol : sans lui, le vide sous l'onglet referme le panneau */
+@media(min-width:961px){.mega::before{content:"";position:absolute;left:0;right:0;top:-26px;height:26px}}
+.mega-col{min-width:0}
+.mega-head,nav.scrolled .mega-head{display:flex!important;align-items:center;gap:.45rem;font-family:var(--sans);font-size:.8rem!important;font-weight:700!important;
+  letter-spacing:.06em;text-transform:uppercase;color:var(--accent)!important;padding:.35rem .5rem!important;border-bottom:2px solid var(--accent);border-radius:6px 6px 0 0!important;margin-bottom:.35rem;background:none!important}
+.mega-cp{font-size:.68rem;font-weight:600;opacity:.55}
+.mega-list{list-style:none;display:flex;flex-direction:column;gap:.05rem}
+.mega-list a,nav.scrolled .mega-list a{display:block!important;color:var(--text)!important;font-size:.82rem!important;padding:.34rem .5rem!important;border-radius:7px;white-space:normal;line-height:1.35}
+.mega-list a:hover,nav.scrolled .mega-list a:hover{background:var(--accent-soft)!important;color:var(--accent)!important}
+.mega-list a.mega-all{font-weight:700}
+.mega-foot{grid-column:1/-1;border-top:1px solid var(--line);padding-top:.7rem;text-align:right}
+.mega-foot a,nav.scrolled .mega-foot a{color:var(--accent)!important;font-weight:700;font-size:.84rem!important}
+.caret{display:none}
+
+/* ── Mobile : accordéons (Services, Villes, puis une ville) ── */
+@media(max-width:960px){
+  .has-sub>.sub-links,.has-mega>.mega{display:none!important}
+  .has-sub.open>.sub-links{display:block!important}
+  .has-mega.open>.mega{display:block!important}
+  .mega{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:none;background:transparent;padding:0 0 .4rem .6rem}
+  .nav-links>li>a.nav-toggle{justify-content:space-between;width:100%}
+  .has-sub.open>a::after,.has-mega.open>a::after{transform:rotate(-135deg) translateY(-1px)}
+  .mega-col{border-top:1px solid var(--line)}
+  .mega-col:first-child{border-top:none}
+  .mega-head,nav.scrolled .mega-head{border-bottom:none;margin-bottom:0;padding:.6rem .4rem!important;justify-content:flex-start}
+  .mega-head::after{content:"";margin-left:auto;width:6px;height:6px;border-right:2px solid currentColor;border-bottom:2px solid currentColor;transform:rotate(45deg);opacity:.6}
+  .mega-col.open .mega-head::after{transform:rotate(-135deg)}
+  .mega-list{display:none;padding:0 0 .5rem .6rem}
+  .mega-col.open .mega-list{display:flex}
+  .mega-foot{text-align:left;border-top:1px solid var(--line)}
+}
+
+/* ── Deux numéros : Noé et David ── */
+.hero-btns .btn-tel2{background:rgba(255,255,255,0.14);color:#fff;border:1px solid rgba(255,255,255,0.45)}
+.hero-btns .btn-tel2:hover{background:rgba(255,255,255,0.24)}
+.tel-note{margin-top:.9rem;font-size:.86rem;color:rgba(255,255,255,0.85)}
+.tel-note b{color:#fff}
+.tel-note.dark{color:var(--muted)}
+.tel-note.dark b{color:var(--text)}
+.btn-tel2.on-light{background:var(--card);color:var(--accent);border:1.5px solid var(--accent)}
+.btn-tel2.on-light:hover{background:var(--accent-soft)}
+.tel-duo{display:flex;flex-direction:column;gap:.15rem}
+
+/* ── Barre d'appel mobile ── */
+.callbar{display:none}
+@media(max-width:760px){
+  .callbar{display:grid;grid-template-columns:1fr 1fr .9fr;gap:.4rem;position:fixed;left:0;right:0;bottom:0;z-index:150;
+    padding:.5rem .5rem calc(.5rem + env(safe-area-inset-bottom));background:rgba(250,248,242,0.97);
+    border-top:1px solid var(--line);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 -6px 20px rgba(35,48,42,0.08)}
+  .callbar a{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:52px;border-radius:12px;
+    font-family:var(--sans);font-size:.9rem;font-weight:700;text-decoration:none;line-height:1.15;text-align:center}
+  .callbar a small{font-size:.66rem;font-weight:600;opacity:.85}
+  .callbar .cb-1{background:var(--accent);color:#fff}
+  .callbar .cb-2{background:var(--card);color:var(--accent);border:1.5px solid var(--accent)}
+  .callbar .cb-3{background:var(--bg2);color:var(--text);border:1px solid var(--line)}
+  body{padding-bottom:calc(74px + env(safe-area-inset-bottom))}
+}
+
+/* ── Pages service × ville ── */
+.local-box{background:var(--card);border:1px solid var(--line);border-radius:var(--r,18px);padding:1.6rem 1.7rem;margin-top:2rem}
+.local-box h3{font-family:var(--serif);font-size:1.45rem;font-weight:600;margin-bottom:.6rem}
+.local-box p{color:var(--muted);line-height:1.8}
+.local-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-top:1.3rem}
+.local-facts div{background:var(--bg2);border-radius:12px;padding:.9rem 1rem}
+.local-facts b{display:block;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.25rem}
+.local-facts span{font-size:.9rem;color:var(--text)}
+@media(max-width:760px){.local-facts{grid-template-columns:1fr}}
+.city-svc{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:1rem;margin-top:2rem}
+.city-svc a{display:block;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:1.3rem 1.4rem;text-decoration:none;color:var(--text);transition:border-color .15s,transform .15s}
+.city-svc a:hover{border-color:var(--accent);transform:translateY(-2px)}
+.city-svc b{display:block;font-family:var(--serif);font-size:1.3rem;margin-bottom:.35rem}
+.city-svc span{color:var(--muted);font-size:.9rem;line-height:1.6}
+.city-svc em{display:inline-block;margin-top:.7rem;font-style:normal;font-weight:600;color:var(--accent);font-size:.85rem}
+
+/* ── Pied de page : maillage villes ── */
+.footer-maillage{display:grid;grid-template-columns:repeat(6,1fr);gap:1rem;max-width:1180px;margin:0 auto 2rem;padding-top:1.6rem;border-top:1px solid rgba(255,255,255,0.1)}
+.footer-maillage .fm-head{display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fff;text-decoration:none;margin-bottom:.5rem;opacity:.9}
+.footer-maillage ul{list-style:none;display:flex;flex-direction:column;gap:.25rem}
+.footer-maillage a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:.76rem;line-height:1.45}
+.footer-maillage a:hover{color:#fff}
+@media(max-width:960px){.footer-maillage{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.footer-maillage{grid-template-columns:repeat(2,1fr)}}
+
+/* Barre de navigation : 8 entrées, on allège entre 961 et 1280 px */
+@media(min-width:961px){.nav-links>li>a{white-space:nowrap}}
+@media(min-width:961px) and (max-width:1280px){
+  .nav-links .nav-opt{display:none}
+  .nav-links a{padding:.45rem .6rem!important;font-size:.84rem!important}
+}

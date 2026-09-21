@@ -45,6 +45,12 @@
       if (d.telephone_tel) {
         document.querySelectorAll('.phone-link').forEach(function (a) { a.href = 'tel:' + d.telephone_tel; });
       }
+      if (d.telephone2_tel) {
+        document.querySelectorAll('.phone2-link').forEach(function (a) { a.href = 'tel:' + d.telephone2_tel; });
+      }
+      if (d.telephone2_affiche) {
+        document.querySelectorAll('.phone2-text').forEach(function (s) { s.textContent = d.telephone2_affiche; });
+      }
       if (d.telephone_affiche) {
         document.querySelectorAll('.phone-text').forEach(function (s) { s.textContent = d.telephone_affiche; });
       }

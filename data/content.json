@@ -2,13 +2,13 @@
   "nom_entreprise": "Artisan David S",
   "type_artisan": "Paysagiste",
   "ville": "Plouhinec",
-  "telephone_affiche": "07 86 82 12 93",
-  "telephone_tel": "+33786821293",
+  "telephone_affiche": "06 04 41 73 82",
+  "telephone_tel": "+33604417382",
   "annee": "2026",
   "hero": {
     "image": "images/hero-bg.jpg",
-    "titre": "Votre paysagiste à Vannes et dans tout le Morbihan",
-    "description": "Artisan David S crée, aménage et entretient vos espaces verts avec passion. Création de jardins, entretien, élagage et taille de haies à Vannes, Auray, Lorient, Pontivy et dans tout le Morbihan."
+    "titre": "Votre paysagiste dans tout le Morbihan",
+    "description": "Élagage, taille de haies, entretien de jardin, débroussaillage et aménagement paysager à Lorient, Hennebont, Vannes, Auray, Carnac et partout dans le Morbihan. Devis gratuit sur place."
   },
   "apropos": {
     "image": "images/apropos.webp",
@@ -59,6 +59,12 @@
       "description": "Nous taillons vos haies avec précision pour des contours nets et durables, en préservant la forme et la vigueur de chaque végétal.",
       "image": "images/service5.webp",
       "page": "taille-de-haies.html"
+    },
+    {
+      "titre": "Débroussaillage et remise en état",
+      "description": "Terrain en friche, jardin abandonné, maison à vendre ou succession : débroussaillage, dessouchage et évacuation de tous les déchets verts.",
+      "image": "images/gallery4.webp",
+      "page": "debroussaillage-terrain.html"
     },
     {
       "titre": "Nettoyage de terrasses et dallages",
@@ -223,5 +229,9 @@
       }
     ]
   },
-  "adresse": "10 Ldt Kerjean, 56680 Plouhinec"
+  "adresse": "10 Ldt Kerjean, 56680 Plouhinec",
+  "telephone2_affiche": "07 86 82 12 93",
+  "telephone2_tel": "+33786821293",
+  "contact1_prenom": "Noé",
+  "contact2_prenom": "David"
 }
