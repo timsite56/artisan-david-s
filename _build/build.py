@@ -74,10 +74,10 @@ def nav(courante, accueil=False):
 </nav>'''
 
 def boutons_tel():
-    return (f'<a href="tel:{T1["tel"]}" class="btn btn-primary phone-link">{PHONE_SVG}<span>{T1["nom"]} · <span class="phone-text">{T1["aff"]}</span></span></a>'
-            f'<a href="tel:{T2["tel"]}" class="btn btn-ghostw phone2-link">{PHONE_SVG}<span>{T2["nom"]} · <span class="phone2-text">{T2["aff"]}</span></span></a>')
+    return (f'<a href="tel:{T1["tel"]}" class="btn btn-primary phone-link">{PHONE_SVG}<span class="phone-text">{T1["aff"]}</span></a>'
+            f'<a href="tel:{T2["tel"]}" class="btn btn-ghostw phone2-link">{PHONE_SVG}<span class="phone2-text">{T2["aff"]}</span></a>')
 
-NOTE_TEL = '<p class="tel-note">Si l\'un de nous ne répond pas, appelez l\'autre : <b>Noé</b> ou <b>David</b> décroche.</p>'
+NOTE_TEL = '<p class="tel-note">Pas de réponse au premier numéro ? Appelez le second, l\'un de nous décroche toujours.</p>'
 
 def maillage():
     cols = []
@@ -107,8 +107,8 @@ def footer():
     </div>
     <div class="footer-col"><h4>Contact</h4>
       <span>{PIN}<span class="brand-ville">10 Ldt Kerjean, 56680 Plouhinec</span></span>
-      <a href="tel:{T1["tel"]}" class="phone-link">{PHONE_SVG}<span>{T1["nom"]} : <span class="phone-text">{T1["aff"]}</span></span></a>
-      <a href="tel:{T2["tel"]}" class="phone2-link">{PHONE_SVG}<span>{T2["nom"]} : <span class="phone2-text">{T2["aff"]}</span></span></a>
+      <a href="tel:{T1["tel"]}" class="phone-link">{PHONE_SVG}<span class="phone-text">{T1["aff"]}</span></a>
+      <a href="tel:{T2["tel"]}" class="phone2-link">{PHONE_SVG}<span class="phone2-text">{T2["aff"]}</span></a>
       <span style="font-size:.78rem;opacity:.75">Si l'un ne répond pas, appelez l'autre.</span>
       <a href="index.html#devis">{DEVIS_SVG}Demander un devis gratuit</a>
     </div>
@@ -117,7 +117,7 @@ def footer():
   <div class="footer-bottom">© <span class="brand-annee">2026</span> <span class="brand-name">{NOM}</span> · Paysagiste à Plouhinec, Lorient, Vannes, Auray, Hennebont, Lanester, Carnac et dans tout le Morbihan · Tous droits réservés</div>
 </footer>'''
 
-ASSETS = '  <link rel="stylesheet" href="assets/villes.css?v=2" />\n  <script defer src="assets/villes.js?v=1"></script>\n'
+ASSETS = '  <link rel="stylesheet" href="assets/villes.css?v=2" />\n  <script defer src="assets/villes.js?v=2"></script>\n'
 
 TPL = lire("elagage-abattage.html")
 HEAD_FONTS = re.search(r'  <link rel="icon".*?<script defer src="assets/pages\.js\?v=\d+"></script>\n', TPL, re.S).group(0)
@@ -211,7 +211,7 @@ def page(fichier, titre, desc, img, eyebrow, h1, accroche, fil, corps, schemas):
 <section class="sec cta">
   <div class="wrap">
     <h2 class="h2">Un devis gratuit, sans engagement</h2>
-    <p>Appelez Noé ou David : nous nous déplaçons gratuitement pour voir votre terrain et vous remettre un prix clair.</p>
+    <p>Appelez-nous : nous nous déplaçons gratuitement pour voir votre terrain et vous remettre un prix clair.</p>
     <div class="btns">
       {boutons_tel()}
       <a href="index.html#devis" class="btn btn-ghostw">Demander un devis</a>
@@ -352,7 +352,7 @@ for v in ORDRE_VILLES:
 </section>
 '''
     titre = f"Paysagiste {V['dans']} ({V['cp']}) — élagage, haies, entretien de jardin"
-    desc = f"Paysagiste {V['dans']} ({V['cp']}) : élagage et abattage, taille de haies, entretien de jardin, débroussaillage, aménagement paysager. Devis gratuit : Noé 06 04 41 73 82, David 07 86 82 12 93."
+    desc = f"Paysagiste {V['dans']} ({V['cp']}) : élagage et abattage, taille de haies, entretien de jardin, débroussaillage, aménagement paysager. Devis gratuit au 06 04 41 73 82 ou au 07 86 82 12 93."
     lb = {"@context": "https://schema.org", "@type": "Service", "serviceType": "Paysagiste", "name": f"Paysagiste {V['dans']}",
           "description": desc, "url": BASE + f, "provider": PROVIDER, "areaServed": {"@type": "City", "name": V["nom"]}}
     faqld = {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": faq_json(faqs)}
@@ -456,7 +456,7 @@ if 'class="tel-note"' not in t.split('<section id="stats">')[0]:
 # pied de page : deuxième numéro + maillage villes
 t = re.sub(r'(<a href="(?:#|tel:[^"]*)" class="phone-link">.*?<span id="footerTel"> ?</span></a>)(\s*<a href="tel:[^"]*" class="phone2-link">.*?</a>\s*<span class="tel-foot"[^>]*>.*?</span>)*',
            lambda m: m.group(1).replace('href="#"', f'href="tel:{T1["tel"]}"') +
-           f'\n      <a href="tel:{T2["tel"]}" class="phone2-link">{PHONE_SVG}<span>{T2["nom"]} : <span class="phone2-text">{T2["aff"]}</span></span></a>\n      <span class="tel-foot" style="font-size:.78rem;opacity:.75">Si l\'un ne répond pas, appelez l\'autre.</span>',
+           f'\n      <a href="tel:{T2["tel"]}" class="phone2-link">{PHONE_SVG}<span class="phone2-text">{T2["aff"]}</span></a>\n      <span class="tel-foot" style="font-size:.78rem;opacity:.75">Si l\'un ne répond pas, appelez l\'autre.</span>',
            t, count=1, flags=re.S)
 t = re.sub(r'\s*<div class="footer-maillage">.*?</div>(?=\s*<div class="footer-bottom">)', '', t, flags=re.S)
 t = t.replace('<div class="footer-bottom">', maillage() + '\n  <div class="footer-bottom">', 1)

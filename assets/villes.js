@@ -39,8 +39,8 @@
     var bar = document.createElement('div');
     bar.className = 'callbar';
     bar.innerHTML =
-      '<a class="cb-1" href="tel:' + TEL1.tel + '">📞 ' + TEL1.nom + '<small>' + TEL1.aff + '</small></a>' +
-      '<a class="cb-2" href="tel:' + TEL2.tel + '">📞 ' + TEL2.nom + '<small>' + TEL2.aff + '</small></a>' +
+      '<a class="cb-1" href="tel:' + TEL1.tel + '">📞 Appeler<small>' + TEL1.aff + '</small></a>' +
+      '<a class="cb-2" href="tel:' + TEL2.tel + '">📞 2ᵉ numéro<small>' + TEL2.aff + '</small></a>' +
       '<a class="cb-3" href="' + devis + '">Devis<small>gratuit</small></a>';
     document.body.appendChild(bar);
   });

@@ -96,7 +96,7 @@ SERVICES = {
  "elagage": dict(nom="Élagage et abattage", court="Élagage & abattage", page="elagage-abattage.html",
    img="images/service4.webp", titre="Élagage à {v} ({cp}) — élagueur, abattage d'arbres",
    h1="Élagage et abattage d'arbres {dans}", accroche="Élagueur {dans} : élagage d'entretien, taille de sécurité, abattage par démontage et dessouchage, avec évacuation complète des bois.",
-   desc="Élagueur {dans} ({cp}) : élagage, abattage par démontage, dessouchage et évacuation. Devis gratuit, Noé 06 04 41 73 82 ou David 07 86 82 12 93."),
+   desc="Élagueur {dans} ({cp}) : élagage, abattage par démontage, dessouchage et évacuation. Devis gratuit au 06 04 41 73 82 ou au 07 86 82 12 93."),
  "taille-de-haies": dict(nom="Taille de haies", court="Taille de haies", page="taille-de-haies.html",
    img="images/service5.webp", titre="Taille de haies à {v} ({cp}) — réduction, ramassage",
    h1="Taille de haies {dans}", accroche="Taille d'entretien, réduction de hauteur et d'épaisseur, haies mitoyennes : un travail net, déchets ramassés et évacués.",
@@ -112,7 +112,7 @@ SERVICES = {
  "amenagement-paysager": dict(nom="Aménagement paysager", court="Aménagement paysager", page="amenagement-paysager.html",
    img="images/service2.webp", titre="Aménagement paysager à {v} ({cp}) — jardin, terrasse, clôture",
    h1="Aménagement paysager {dans}", accroche="Plantations, engazonnement, allées, clôtures et massifs : un jardin pensé pour votre terrain et le climat breton.",
-   desc="Aménagement paysager {dans} ({cp}) : création de jardin, plantations, engazonnement, allées et clôtures. Devis gratuit, Noé 06 04 41 73 82 ou David 07 86 82 12 93."),
+   desc="Aménagement paysager {dans} ({cp}) : création de jardin, plantations, engazonnement, allées et clôtures. Devis gratuit au 06 04 41 73 82 ou au 07 86 82 12 93."),
 }
 
 ORDRE_SERVICES = ["elagage", "taille-de-haies", "entretien-jardin", "debroussaillage", "amenagement-paysager"]
@@ -174,7 +174,7 @@ COMBOS = {
   ("Combien coûte l'entretien d'un jardin de pavillon ?", "Cela dépend de la surface et de ce qui est inclus (tonte seule, ou tonte et taille). Nous passons voir votre jardin à Lanester et vous remettons un devis gratuit et précis.")),
  ("entretien-jardin", "carnac"): (
   "À Carnac, l'entretien d'une résidence secondaire se fait sans le propriétaire : nous passons selon un calendrier défini ensemble, tondons, taillons, nettoyons les allées et ramassons les aiguilles de pin, puis nous vous envoyons des photos. Votre jardin est prêt à chaque séjour.",
-  ("Pouvez-vous entretenir mon jardin toute l'année en mon absence ?", "Oui. C'est notre formule la plus demandée à Carnac : passages programmés, photos après chaque intervention, et un contact direct avec Noé ou David.")),
+  ("Pouvez-vous entretenir mon jardin toute l'année en mon absence ?", "Oui. C'est notre formule la plus demandée à Carnac : passages programmés, photos après chaque intervention, et un interlocuteur joignable directement par téléphone.")),
 
  ("debroussaillage", "lorient"): (
   "À Lorient, une parcelle laissée à l'abandon quelques années se couvre de ronces, de lierre et de jeunes arbres. Avant une vente, une location ou des travaux, nous débroussaillons, arrachons les souches et évacuons tous les déchets : le terrain retrouve sa surface utile et sa valeur.",
