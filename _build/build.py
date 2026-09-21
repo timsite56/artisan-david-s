@@ -117,7 +117,7 @@ def footer():
   <div class="footer-bottom">© <span class="brand-annee">2026</span> <span class="brand-name">{NOM}</span> · Paysagiste à Plouhinec, Lorient, Vannes, Auray, Hennebont, Lanester, Carnac et dans tout le Morbihan · Tous droits réservés</div>
 </footer>'''
 
-ASSETS = '  <link rel="stylesheet" href="assets/villes.css?v=4" />\n  <script defer src="assets/villes.js?v=4"></script>\n'
+ASSETS = '  <link rel="stylesheet" href="assets/villes.css?v=5" />\n  <script defer src="assets/villes.js?v=5"></script>\n'
 
 TPL = lire("elagage-abattage.html")
 HEAD_FONTS = re.search(r'  <link rel="icon".*?<script defer src="assets/pages\.js\?v=\d+"></script>\n', TPL, re.S).group(0)
@@ -242,19 +242,17 @@ for s in ORDRE_SERVICES:
         autres_villes = "".join(f'<a class="ville-chip" href="{page_combo(s, w)}">{E(S["court"])} {E(VILLES[w]["nom"])}</a>' for w in ORDRE_VILLES if w != v)
         faqs = [faq_li(fq, fa)] + SVC_BLOCS[s]["faqs"][:2]
         corps = f'''
-<section class="sec">
+<section class="sec lp-first">
   <div class="wrap">
     <div class="sec-head">
-      <span class="eyebrow">{E(S["nom"])} · {E(V["nom"])}</span>
-      <h2 class="h2">{E(S["nom"])} {E(V["dans"])} et alentours</h2>
-    </div>
-    <div class="prose"><p>{E(intro)}</p><p>Installés à Plouhinec, nous intervenons {E(V["dans"])} ({V["cp"]}) avec tout le matériel nécessaire. Le déplacement pour le devis est gratuit, et le prix est fixé avant le début du chantier.</p></div>
-    <div class="local-box">
-      <h3>Nos interventions {E(V["dans"])}</h3>
-      <p>{E(V["contexte"])}</p>
-      <div class="local-facts"><div><b>Accès</b><span>{E(V["acces"])}</span></div><div><b>Jardins</b><span>{E(V["jardins"])}</span></div><div><b>À savoir</b><span>{E(V["attention"])}</span></div></div>
+      <span class="eyebrow">Ce que nous faisons {E(V["dans"])}</span>
+      <h2 class="h2">{E(S["nom"])} {E(V["dans"])}</h2>
     </div>
     {SVC_BLOCS[s]["checks"]}
+    <div class="lp-call">
+      <p><b>Devis gratuit sur place</b> · prix fixé avant le chantier</p>
+      <div class="lp-call-btns">{boutons_tel()}</div>
+    </div>
   </div>
 </section>
 
@@ -262,7 +260,7 @@ for s in ORDRE_SERVICES:
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Comment ça se passe</span>
-      <h2 class="h2">Le déroulement de votre chantier {E(V["dans"])}</h2>
+      <h2 class="h2">Votre chantier en 4 étapes</h2>
     </div>
     {SVC_BLOCS[s]["steps"]}
   </div>
@@ -272,21 +270,29 @@ for s in ORDRE_SERVICES:
   <div class="wrap">
     <div class="sec-head center">
       <span class="eyebrow">Questions fréquentes</span>
-      <h2 class="h2">{E(S["nom"])} {E(V["dans"])} : vos questions</h2>
+      <h2 class="h2">Vos questions</h2>
     </div>
     <ul class="faq-list">{"".join(faqs)}</ul>
+    <details class="lp-more">
+      <summary>En savoir plus : {E(S["nom"].lower())} {E(V["dans"])}</summary>
+      <div class="prose"><p>{E(intro)}</p><p>Installés à Plouhinec, nous intervenons {E(V["dans"])} ({V["cp"]}) avec tout le matériel nécessaire. Le déplacement pour le devis est gratuit, et le prix est fixé avant le début du chantier.</p></div>
+      <div class="local-box">
+        <h3>Nos interventions {E(V["dans"])}</h3>
+        <p>{E(V["contexte"])}</p>
+        <div class="local-facts"><div><b>Accès</b><span>{E(V["acces"])}</span></div><div><b>Jardins</b><span>{E(V["jardins"])}</span></div><div><b>À savoir</b><span>{E(V["attention"])}</span></div></div>
+      </div>
+    </details>
   </div>
 </section>
 
-<section class="sec alt">
+<section class="sec alt lp-autres">
   <div class="wrap">
     <div class="sec-head">
       <span class="eyebrow">Aussi {E(V["dans"])}</span>
-      <h2 class="h2">Nos autres services {E(V["dans"])}</h2>
-      <p class="lead" style="margin-top:1rem"><a href="{page_hub(v)}" style="color:var(--accent);font-weight:600">Tous nos services de paysagiste {E(V["dans"])} →</a></p>
+      <h2 class="h2">Nos autres services</h2>
     </div>
     <div class="city-svc">{autres_svc}</div>
-    <div class="villes" style="margin-top:2rem">{autres_villes}</div>
+    <div class="villes" style="margin-top:1.4rem"><a class="ville-chip" href="{page_hub(v)}">Paysagiste {E(V["nom"])}</a>{autres_villes}</div>
   </div>
 </section>
 '''
