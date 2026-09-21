@@ -44,4 +44,22 @@
       '<a class="cb-3" href="' + devis + '">Devis<small>gratuit</small></a>';
     document.body.appendChild(bar);
   });
+  /* Mobile : textes longs repliés derrière « Lire la suite ». Le texte
+     reste dans la page (Google et le niveau de qualité Ads le lisent). */
+  document.addEventListener('DOMContentLoaded', function () {
+    if (window.innerWidth > 760 || !document.querySelector('.page-hero')) return;
+    document.querySelectorAll('.prose, .local-box').forEach(function (el) {
+      if (el.scrollHeight < 260) return;
+      el.classList.add('replie');
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'lire-suite';
+      b.textContent = 'Lire la suite';
+      b.addEventListener('click', function () {
+        var ouvert = el.classList.toggle('replie') === false;
+        b.textContent = ouvert ? 'Réduire' : 'Lire la suite';
+      });
+      el.parentNode.insertBefore(b, el.nextSibling);
+    });
+  });
 })();

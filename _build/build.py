@@ -117,7 +117,7 @@ def footer():
   <div class="footer-bottom">© <span class="brand-annee">2026</span> <span class="brand-name">{NOM}</span> · Paysagiste à Plouhinec, Lorient, Vannes, Auray, Hennebont, Lanester, Carnac et dans tout le Morbihan · Tous droits réservés</div>
 </footer>'''
 
-ASSETS = '  <link rel="stylesheet" href="assets/villes.css?v=3" />\n  <script defer src="assets/villes.js?v=2"></script>\n'
+ASSETS = '  <link rel="stylesheet" href="assets/villes.css?v=4" />\n  <script defer src="assets/villes.js?v=4"></script>\n'
 
 TPL = lire("elagage-abattage.html")
 HEAD_FONTS = re.search(r'  <link rel="icon".*?<script defer src="assets/pages\.js\?v=\d+"></script>\n', TPL, re.S).group(0)
